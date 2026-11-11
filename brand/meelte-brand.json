@@ -287,7 +287,7 @@
       "overlay_after_generation",
       "mixed"
     ],
-    "text_rendering_default": "overlay_after_generation",
-    "text_rendering_note": "Default to generating clean text-safe areas and adding final typography deterministically. Use in_image only when the model is known to render text accurately, and always QA the spelling."
+    "text_rendering_default": "in_image",
+    "text_rendering_note": "Project default is in_image: the generation host is a text-capable model (Nano Banana Pro, Ideogram), so the headline is rendered and QA'd character by character. Switch to overlay_after_generation when the model is unreliable at text or when a deterministic overlay layer is available. Either way, a price, date, or legal line may appear only if the user supplied the exact string."
   }
 }

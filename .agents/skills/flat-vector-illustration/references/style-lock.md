@@ -34,6 +34,17 @@ No text, no lettering, no signage copy.
 | Detail level | controlled, single focal point |
 | Text | none in image |
 
+## Text-mode line
+
+The final line — `No text, no lettering, no signage copy.` — is a **text-mode instruction, not a style rule**. It is the only line that changes between runs:
+
+| `text_mode` | Final line |
+|---|---|
+| `overlay_after_generation` | `No text, no lettering, no signage copy.` |
+| `in_image` | the quoted-text instruction from `pipeline.md` §4, Block 5 |
+
+Substituting it is not a style change and does not create a new lock version. Changing any other line does.
+
 ## What may vary per image
 
 - Scene, setting, props

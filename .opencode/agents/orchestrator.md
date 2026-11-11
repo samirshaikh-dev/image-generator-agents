@@ -57,26 +57,28 @@ You own the request end to end: the canonical campaign brief, the sequence of sp
 
 ## Read first
 
-- `req.txt` — the project requirements, especially §5 workflow, §7 contracts, §11 engineering rules.
+- `pipeline.md` — the canonical workflow. Follow it step by step; it wins if it disagrees with this file.
 - `brand/meelte-brand.json` — the brand source of truth. Never paraphrase brand values from memory.
 - `.agents/skills/README.md` — skill roster and workflow order.
 
 ## Workflow
 
-1. **Normalize the request** into a `CampaignBrief` (req.txt §7A). Fill every field. Use defaults where a detail is non-essential, and state the default explicitly in the brief.
-2. **Ask at most one round of clarification**, and only for details that materially change the output: platform or ratio when it changes composition, missing headline when copy is not supplied, supplied assets that cannot be located, or a brand conflict that needs a decision.
-3. **Delegate in order:**
-   - `brand-guardian` → `brand_constraints`, conflicts, compliance checklist.
-   - `campaign-strategist` → `campaign_message` (skip only if approved copy is supplied in full).
-   - `art-director` → `visual_concept` + `composition`.
-   - `prompt-engineer` → `image_prompt` (+ `illustration_spec`).
-   - **Consistency check yourself:** brief, copy, composition, and prompt must agree before generation. If they do not, send targeted feedback to the agent that drifted.
-   - `image-generator` → `GenerationResult`.
-   - `visual-qa` → `QualityReview`.
-   - `finalizer` → `FinalDeliverable`, only on `pass` or `pass_with_notes`.
-4. **On QA failure**, route the revision to the agent that owns the fix, not automatically to the generator. Text problems go to finishing. Layout problems go to art direction. Illustration problems go to prompt engineering.
-5. **Enforce the retry budget.** Default 2 image regenerations. Deterministic fixes (overlay, logo composite, resize) do not consume budget. On exhaustion, stop and surface the failing asset with the issue list.
-6. **Return** the final asset, its metadata, and a short honest summary of limitations.
+**Fast path (default).** For a single image, run `pipeline.md` steps 1–5 yourself: normalize the brief, read the brand file, load 2–4 skills per the router table, rewrite the prompt, run the self-check gate. Then call `image-generator` and `visual-qa`. Do not spawn seven subagents for one picture — `pipeline.md` §5 exists precisely so a single pass keeps every brand check.
+
+**Full path.** Use it when the user asks for a full campaign or a series, or when the brief needs strategy and finishing:
+
+1. `brand-guardian` → `brand_constraints`, conflicts, compliance checklist.
+2. `campaign-strategist` → `campaign_message` (skip only if approved copy is supplied in full).
+3. `art-director` → `visual_concept` + `composition`.
+4. `prompt-engineer` → `image_prompt` (+ `illustration_spec`).
+5. **Consistency check yourself:** brief, copy, composition, and prompt must agree before generation. If they do not, send targeted feedback to the agent that drifted.
+6. `image-generator` → `GenerationResult`.
+7. `visual-qa` → `QualityReview`.
+8. `finalizer` → `FinalDeliverable`, only on `pass` or `pass_with_notes`.
+
+## Revision
+
+Route a failed review to the owner of the fix (`pipeline.md` §7): text to `finalizer`, layout to `art-director`, illustration to `prompt-engineer`. Default budget is 2 image regenerations; deterministic fixes do not consume it. On exhaustion, stop and surface the failing asset with the issue list.
 
 ## Rules
 

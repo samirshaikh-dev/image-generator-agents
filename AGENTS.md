@@ -1,8 +1,10 @@
 # Meelte Agent Roster
 
-Eight agents implementing the workflow in `req.txt` §4–§5. They live in `.opencode/agents/`, which is the directory OpenCode V2 discovers — a Markdown file there becomes an agent automatically.
+Eight agents implementing the workflow in `pipeline.md`, inside OpenCode. They live in `.opencode/agents/`, which is the directory OpenCode V2 discovers — a Markdown file there becomes an agent automatically.
 
 This file sits at the repository root as `AGENTS.md`, so OpenCode loads it as project instructions in every session.
+
+> **Canonical workflow: [`pipeline.md`](pipeline.md).** It is host-agnostic — Antigravity, Gemini CLI, Claude Code, Cursor, and OpenCode all read it. This file describes the OpenCode implementation; when the two disagree, `pipeline.md` wins.
 
 > `.agents/agents/` is **not** an OpenCode discovery path. Agent files placed there are inert. Skills use `.agents/skills/`; agents use `.opencode/agents/`.
 
@@ -78,16 +80,9 @@ Use the orchestrator agent to create a 4:5 Instagram post for a kirana store Diw
 Use the brand-guardian agent to check whether an all-orange creative is on-brand.
 ```
 
-**Make the orchestrator the default primary agent** for this project — create `opencode.json`:
+**The orchestrator is already the default primary agent** — `opencode.jsonc` sets `default_agent: "orchestrator"`, so a new session in this project starts as the creative producer. Switch to `build` to edit source code; the orchestrator can only write under `outputs/`.
 
-```jsonc
-{
-  "$schema": "https://opencode.ai/config.json",
-  "default_agent": "orchestrator"
-}
-```
-
-Not set by default, so normal coding sessions keep the `build` agent. The orchestrator cannot edit source code by design — it only writes under `outputs/`.
+To go back to the coding agent by default, delete that line from `opencode.jsonc` or set it to `"build"`.
 
 ## Revision policy
 

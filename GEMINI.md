@@ -11,6 +11,7 @@ Full requirements: `req.txt`. Agent roster and handoffs: `AGENTS.md`.
 ## Repository layout
 
 ```
+pipeline.md               canonical, host-agnostic workflow — read this first
 AGENTS.md                 agent roster, handoff map, revision policy
 opencode.jsonc            OpenCode config (default agent = orchestrator)
 req.txt                   full project requirements
@@ -49,20 +50,24 @@ Source of truth is `brand/meelte-brand.json`. Never restate brand values from me
 
 ## Workflow
 
+**Follow [`pipeline.md`](pipeline.md).** It is the canonical workflow for every host — this section only maps its steps onto the OpenCode agents.
+
 ```
-request
-  → normalize into CampaignBrief
-  → brand-guardian      (brand_constraints + conflicts)
-  → campaign-strategist (campaign_message: headline, supporting, CTA)
-  → art-director        (visual_concept + composition map)
-  → prompt-engineer     (illustration_spec + image_prompt)
-  → consistency check: brief, copy, composition, prompt must agree
-  → image-generator     (GenerationResult)
-  → visual-qa           (QualityReview)
-  → finalizer           (FinalDeliverable)
+pipeline.md step        OpenCode agent
+─────────────────────────────────────────
+1. normalize        →   orchestrator
+2. load brand       →   brand-guardian
+3. route to skills  →   orchestrator
+4. rewrite prompt   →   art-director + prompt-engineer
+5. self-check       →   orchestrator
+6. generate         →   image-generator
+7. review           →   visual-qa
+8. save             →   finalizer
 ```
 
-Failures route back to the agent that owns the fix, not automatically to generation:
+For a single image the orchestrator may run steps 1–5 itself instead of delegating. `pipeline.md` §0 and §5 are gates, not guidance.
+
+Failures route back to the owner of the fix, not automatically to generation:
 
 | Problem | Owner |
 |---|---|
@@ -100,7 +105,7 @@ If you are acting as a single specialist, produce only your contract and stop.
 - Never invent prices, offers, statistics, timeframes, guarantees, testimonials, or product capabilities.
 - Never claim an image was generated when the provider call failed.
 - Never mark an asset brand-approved without a QA pass.
-- Never let an image model render the brand name, a price, a date, or legal text — overlay it deterministically.
+- Brand name and headline may be rendered in-image (the project default) only when the user supplied the exact string and QA checks the spelling character by character. Prices, dates, and legal lines are overlaid or left out — never guessed.
 - Never paraphrase the style-lock block; drift starts there.
 - Never rewrite approved copy without flagging it.
 - Keep every prompt version and revision. Never overwrite a raw generation.
@@ -112,4 +117,8 @@ Ask only when the answer materially changes the output: platform/ratio when it c
 
 ## Status
 
-The eight agents and nine skills are in place. No image provider is configured yet — `image-generator` will correctly return `status: "failed"` with `"no image provider configured"`. Do not fake a result. The next pieces are the provider adapter (`providers/`) and the §7 JSON schemas.
+`pipeline.md`, the nine skills, the brand file, and the eight agents are in place.
+
+Inside OpenCode, `image-generator` still has no provider adapter — it will correctly return `status: "failed"` with `"no image provider configured"`. Do not fake a result. The provider adapter (`providers/`) and the §7 JSON schemas remain unbuilt.
+
+Outside OpenCode, `pipeline.md` needs no provider: if the host has an image tool (Antigravity, Gemini app, Ideogram, Midjourney), it generates; if not, it returns the finished prompt and stops.
