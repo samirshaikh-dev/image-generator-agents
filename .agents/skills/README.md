@@ -4,7 +4,7 @@ Reusable skill modules for the Meelte multi-agent image workflow described in `r
 
 Each folder is a self-contained skill: a `SKILL.md` with YAML frontmatter (`name`, `description`) plus optional `references/` and `scripts/`. Agents discover them by folder — no registration step, no build.
 
-The eight agents that consume these skills live in `.opencode/agents/`. See [`docs/agents.md`](../../docs/agents.md) for the roster, handoff map, and permission model.
+The eight agents that consume these skills live in `.opencode/agents/`. See [`AGENTS.md`](../../AGENTS.md) for the roster, handoff map, and permission model.
 
 ## Skills
 

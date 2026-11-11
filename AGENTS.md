@@ -2,6 +2,8 @@
 
 Eight agents implementing the workflow in `req.txt` §4–§5. They live in `.opencode/agents/`, which is the directory OpenCode V2 discovers — a Markdown file there becomes an agent automatically.
 
+This file sits at the repository root as `AGENTS.md`, so OpenCode loads it as project instructions in every session.
+
 > `.agents/agents/` is **not** an OpenCode discovery path. Agent files placed there are inert. Skills use `.agents/skills/`; agents use `.opencode/agents/`.
 
 ## Roster

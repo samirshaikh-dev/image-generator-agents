@@ -1,0 +1,14 @@
+{
+  // OpenCode V2 project configuration for the Meelte image-generation workspace.
+  // Schema: https://opencode.ai/config.json
+  "$schema": "https://opencode.ai/config.json",
+
+  // New sessions start in the image-generation orchestrator, not the coding agent.
+  // The orchestrator can only write under outputs/ - switch to `build` to edit code.
+  // Revert by deleting this line or setting it to "build".
+  "default_agent": "orchestrator"
+
+  // Agents are discovered from .opencode/agents/*.md - no definitions needed here.
+  // Skills are discovered from .agents/skills/*/SKILL.md.
+  // Project instructions are loaded from AGENTS.md automatically.
+}
