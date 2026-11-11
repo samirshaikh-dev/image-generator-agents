@@ -1,0 +1,293 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-11-11",
+  "status": "active",
+  "source_of_truth": true,
+  "_note": "Single source of truth for Meelte visual identity. Skills and agents READ this file. Do not copy hex values into prompts or skill files; reference the token name instead so a palette change propagates everywhere.",
+  "brand": {
+    "name": "Meelte",
+    "name_rules": [
+      "Always 'Meelte' - capital M, double e.",
+      "Never render 'MELTE', 'Meelte.', 'Meelte Inc', or a split wordmark unless the supplied logo asset shows it.",
+      "The brand name in copy is never abbreviated and never lowercased."
+    ],
+    "positioning": "The friendly technology partner for local businesses.",
+    "promise": "Make local business owners feel understood and empowered.",
+    "personality": [
+      "playful",
+      "approachable",
+      "modern",
+      "friendly",
+      "community-oriented",
+      "technology-driven"
+    ],
+    "tone_rules": [
+      "Speak to the owner, not about the software.",
+      "Lead with the business benefit; technology is the how, never the headline.",
+      "Warm and plain-spoken. No enterprise jargon, no growth-hacker language.",
+      "Confident, never boastful. No superlatives that cannot be substantiated.",
+      "Celebrate the local business owner as the hero; Meelte is the helpful tool."
+    ],
+    "tone_avoid": [
+      "corporate stock-photo optimism",
+      "technical product-brochure language",
+      "urgency pressure or fear-based selling",
+      "infantilising or patronising copy"
+    ]
+  },
+  "palette": {
+    "tokens": {
+      "orange": {
+        "hex": "#FEA711",
+        "rgb": [254, 167, 17],
+        "role": "primary",
+        "usage": "Dominant accent. CTAs, highlight shapes, key numerals, energy. Use as the first colour the eye lands on.",
+        "on_white": "OK for large text and shapes; not for body copy under 18px."
+      },
+      "purple": {
+        "hex": "#743BAA",
+        "rgb": [116, 59, 170],
+        "role": "primary",
+        "usage": "Dominant brand anchor. Headlines, logo lockups, large shapes, trust surfaces.",
+        "on_white": "Safe for all text sizes."
+      },
+      "lavender": {
+        "hex": "#F4EFFD",
+        "rgb": [244, 239, 253],
+        "role": "support",
+        "usage": "Breathing room, background panels, card fills, soft separation.",
+        "on_white": "Never use for text. Background only."
+      },
+      "charcoal": {
+        "hex": "#171923",
+        "rgb": [23, 25, 35],
+        "role": "neutral",
+        "usage": "Typography, outlines, high-contrast text, deep backgrounds.",
+        "on_white": "Primary text colour."
+      },
+      "white": {
+        "hex": "#FFFFFF",
+        "rgb": [255, 255, 255],
+        "role": "neutral",
+        "usage": "Clarity, negative space, text on purple or charcoal, card surfaces.",
+        "on_white": "N/A"
+      }
+    },
+    "dominance_target": {
+      "orange": 0.3,
+      "purple": 0.25,
+      "lavender": 0.2,
+      "charcoal": 0.15,
+      "white": 0.1
+    },
+    "dominance_note": "Targets are a sanity check, not a pixel budget. Orange and purple together must read as the dominant pair in any creative.",
+    "rules": [
+      "Orange + purple are the dominant brand pair. If a third hue is needed, it must be a campaign-specific reason documented in the brief.",
+      "Lavender and white carry negative space; charcoal carries text.",
+      "Never place orange text on purple or purple text on orange for anything smaller than a headline.",
+      "Never tint the palette (no pastel orange, no navy 'brand purple'). Use the exact hex values.",
+      "Keep one clear contrast hierarchy: charcoal or white text, one accent, one background.",
+      "Gradients are allowed only between two brand tokens and only as subtle depth, never as a rainbow."
+    ],
+    "banned_colors": [
+      "teal / cyan as a dominant colour",
+      "red as a dominant colour",
+      "neon or fluorescent variants",
+      "black (#000000) as a substitute for charcoal"
+    ],
+    "contrast_pairs": {
+      "approved_text": [
+        "charcoal on white",
+        "charcoal on lavender",
+        "white on purple",
+        "white on charcoal",
+        "purple on white",
+        "purple on lavender",
+        "charcoal on orange"
+      ],
+      "avoid": [
+        "orange on purple",
+        "purple on orange",
+        "white on orange (below 24px)",
+        "lavender on white"
+      ]
+    }
+  },
+  "typography": {
+    "preferred_families": ["Poppins", "Manrope", "Plus Jakarta Sans"],
+    "fallback_stack": "Inter, Arial, Helvetica, sans-serif",
+    "headline": {
+      "weight": "ExtraBold (800) or Bold (700)",
+      "case": "Sentence case preferred; Title Case allowed",
+      "tracking": "-0.01em to -0.02em",
+      "line_height": "0.95 to 1.05",
+      "max_words": 6,
+      "max_lines": 2
+    },
+    "subhead": {
+      "weight": "SemiBold (600)",
+      "line_height": "1.2",
+      "max_words": 8
+    },
+    "body": {
+      "weight": "Medium (500) or SemiBold (600)",
+      "line_height": "1.4 to 1.5",
+      "max_words": 14
+    },
+    "cta": {
+      "weight": "Bold (700)",
+      "case": "Sentence case or Title Case",
+      "max_words": 4
+    },
+    "rules": [
+      "Bold geometric sans only. No serif, no script, no condensed grotesque.",
+      "One type family per creative. Do not mix Poppins with Manrope in the same layout.",
+      "Never stretch, squash, outline, or add drop shadows to type.",
+      "Never use all-caps for anything longer than 3 words.",
+      "Never letterspace body copy.",
+      "Do not render small text in the image model; put it in a text-safe area and overlay deterministically."
+    ]
+  },
+  "logo": {
+    "asset_directory": "brand/assets/logo/",
+    "variants": [
+      "primary-full-colour",
+      "reverse-white",
+      "mono-charcoal",
+      "mark-only"
+    ],
+    "selection_rule": "Pick the variant by background: full-colour on white/lavender, reverse-white on purple/charcoal, mono-charcoal only when colour reproduction is unavailable.",
+    "clear_space": "0.5 x mark height on all four sides, minimum.",
+    "min_size": {
+      "digital_px_width": 96,
+      "print_mm_width": 12
+    },
+    "placement": {
+      "default": "footer band, left or right aligned",
+      "safe_margin_pct": 4,
+      "never": [
+        "centred over the main illustration",
+        "rotated",
+        "outlined",
+        "recoloured outside the approved variants",
+        "stretched or squashed",
+        "placed on a busy or low-contrast area",
+        "recreated, redrawn, or approximated from memory"
+      ]
+    },
+    "integrity_rule": "If no approved logo file is supplied, leave a reserved logo zone and mark the deliverable 'logo pending'. Never fabricate, trace, or generate the Meelte logo."
+  },
+  "illustration": {
+    "style_name": "Playful Modern Branding + Flat Vector Illustration + Bold Editorial Advertising",
+    "default_treatment": "polished 2D commercial vector illustration",
+    "attributes": {
+      "shapes": "flat vector forms with subtle gradients for depth",
+      "edges": "smooth and clean, minimal outlines",
+      "characters": "friendly, expressive faces, rounded slightly exaggerated proportions",
+      "objects": "simplified and recognisable",
+      "lighting": "soft shadows, restrained highlights",
+      "detail": "controlled; one focal point, uncluttered background",
+      "palette": "limited and intentional, drawn from the brand tokens"
+    },
+    "banned_treatments": [
+      "photorealism",
+      "3D render or clay render",
+      "generic corporate stock photography",
+      "busy infographic layouts",
+      "unrelated illustration styles (anime, gritty sketch, low-poly, watercolour, memphis revival)",
+      "AI-sheen plastic gradients",
+      "isometric tech-dashboard cliche"
+    ],
+    "override_rule": "A different style is permitted only when the user explicitly requests it, and the override must be recorded in the campaign brief."
+  },
+  "subjects": {
+    "approved": [
+      "local shopkeepers",
+      "customers",
+      "small-business owners",
+      "retail shelves and stock",
+      "products and packaging",
+      "checkout counters and POS",
+      "smartphones showing storefronts, catalogues, orders",
+      "catalogues, offers, price tags",
+      "local community and street-market environments"
+    ],
+    "rules": [
+      "People must be contextually appropriate to the market and campaign audience.",
+      "Avoid stereotypes of profession, gender, age, or region.",
+      "Props must earn their place; no filler objects to balance the frame.",
+      "Smartphone props communicate Meelte's digital capability only when relevant."
+    ]
+  },
+  "formats": [
+    {
+      "id": "ig-square",
+      "label": "Instagram square post",
+      "ratio": "1:1",
+      "pixels": [1080, 1080],
+      "safe_margin_pct": 6,
+      "bands": { "header": 0.32, "illustration": 0.5, "footer": 0.18 }
+    },
+    {
+      "id": "ig-portrait",
+      "label": "Instagram portrait / feed creative",
+      "ratio": "4:5",
+      "pixels": [1080, 1350],
+      "safe_margin_pct": 6,
+      "bands": { "header": 0.3, "illustration": 0.52, "footer": 0.18 }
+    },
+    {
+      "id": "banner-landscape",
+      "label": "Landscape promotional banner",
+      "ratio": "16:9",
+      "pixels": [1920, 1080],
+      "safe_margin_pct": 4,
+      "bands": { "header": 0.3, "illustration": 0.55, "footer": 0.15 }
+    },
+    {
+      "id": "story-vertical",
+      "label": "Story / Reel cover (optional)",
+      "ratio": "9:16",
+      "pixels": [1080, 1920],
+      "safe_margin_pct": 8,
+      "bands": { "header": 0.24, "illustration": 0.56, "footer": 0.2 }
+    }
+  ],
+  "layout": {
+    "principles": [
+      "One strong headline.",
+      "One central illustration or focal subject.",
+      "One concise supporting message.",
+      "One call to action, only when required.",
+      "Consistent logo placement and adequate safe margins.",
+      "The message must be understandable in under three seconds."
+    ],
+    "hierarchy_order": ["headline", "focal subject", "supporting copy", "cta", "logo"],
+    "rules": [
+      "Never force a 1:1 layout onto another ratio; recompose per format.",
+      "Never let two elements compete for the same focal weight.",
+      "Never crowd the frame; negative space is part of the design.",
+      "Text must never sit on a busy illustration area without a solid or scrim panel."
+    ]
+  },
+  "copy": {
+    "headline_max_words": 6,
+    "supporting_max_words": 14,
+    "cta_max_words": 4,
+    "claim_policy": "Never invent prices, offers, discounts, statistics, product capabilities, or customer claims. If a fact is not in the brief, it does not appear in the creative.",
+    "cta_examples": [
+      "Start selling on Meelte",
+      "Open your shop",
+      "Grow your store",
+      "Try Meelte free",
+      "See how it works"
+    ],
+    "text_rendering_modes": [
+      "in_image",
+      "overlay_after_generation",
+      "mixed"
+    ],
+    "text_rendering_default": "overlay_after_generation",
+    "text_rendering_note": "Default to generating clean text-safe areas and adding final typography deterministically. Use in_image only when the model is known to render text accurately, and always QA the spelling."
+  }
+}

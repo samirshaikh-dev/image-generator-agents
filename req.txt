@@ -1,0 +1,586 @@
+MEELTE MULTI-AGENT IMAGE GENERATION SYSTEM
+PROJECT REQUIREMENTS
+File: req.txt
+Purpose: Give a coding agent the requirements for adding a reusable multi-agent workflow and the skills needed to create consistent Meelte marketing images.
+
+===============================================================================
+1. PROJECT OBJECTIVE
+===============================================================================
+
+Build a reusable, multi-agent image-creation system for Meelte. The system must
+turn a user's campaign brief or image request into a planned, on-brand visual,
+then generate and quality-check the final image.
+
+This is not just a collection of prompt templates. Implement a coordinated
+workflow in which specialist agents have clear responsibilities, exchange
+structured outputs, and pass work through an orchestrator.
+
+The system must:
+- Preserve Meelte's visual identity across future image requests.
+- Support Instagram posts, feed creatives, promotional banners, feature
+  announcements, local-business campaigns, and other marketing assets.
+- Translate a short or incomplete brief into a clear creative direction.
+- Generate image prompts that consistently follow the supplied style guide.
+- Check the generated result against the brief and brand rules.
+- Support revisions without restarting the entire workflow.
+- Be modular so that image models, tools, and agent implementations can be
+  changed later.
+
+Do not assume a specific framework, agent library, image provider, or existing
+repository structure. First inspect the current codebase, identify its stack,
+architecture, conventions, and existing image-generation capabilities, then
+propose an implementation plan that fits the project. Do not replace working
+infrastructure without a clear reason.
+
+===============================================================================
+2. MEELTE BRAND AND VISUAL STYLE
+===============================================================================
+
+Brand personality:
+- Playful, approachable, modern, friendly, community-oriented, and
+  technology-driven.
+- Make local business owners feel understood and empowered.
+- Communicate practical business value rather than making the creative feel
+  like a technical product brochure.
+
+Core art direction:
+"Playful Modern Branding + Flat Vector Illustration + Bold Editorial
+Advertising."
+
+The default visual treatment is polished 2D commercial vector illustration:
+- Flat vector shapes with subtle gradients for depth.
+- Smooth, clean edges and minimal outlines.
+- Friendly human characters with expressive faces.
+- Rounded, slightly exaggerated character proportions.
+- Simplified, recognizable objects and environments.
+- Soft shadows, restrained highlights, and controlled detail.
+- Clear focal point and uncluttered background.
+- Limited, intentional palette.
+
+Do not default to photorealism, 3D renders, generic corporate stock imagery,
+busy infographics, or unrelated illustration styles. A different style may be
+used only when the user explicitly requests it.
+
+Brand palette:
+- Primary orange: #FEA711
+- Primary purple: #743BAA
+- Soft lavender: #F4EFFD
+- Dark charcoal: #171923
+- White: #FFFFFF
+
+Color usage:
+- Orange and purple are the dominant brand colors.
+- Lavender provides breathing room and soft supporting surfaces.
+- Charcoal is used for readable, high-contrast typography and outlines.
+- White is used for clarity and contrast.
+- Do not introduce extra dominant colors without a campaign-specific reason.
+- Keep contrast and readability strong.
+
+Typography direction:
+- Use bold geometric sans-serif typography.
+- Preferred font direction: Poppins, Manrope, or Plus Jakarta Sans.
+- Headlines: ExtraBold or Bold, large, compact, and high impact.
+- Supporting copy: Medium or Semibold with comfortable line spacing.
+- Use short headlines and minimal copy.
+- If the image model cannot render exact text reliably, create the image with
+  clean text-safe areas and add final typography using a deterministic
+  post-processing/design layer. Never silently accept misspelled brand names
+  or important campaign copy.
+
+Layout principles:
+- One strong headline.
+- One central illustration or focal subject.
+- One concise supporting message.
+- One clear call to action when required.
+- Consistent logo placement and adequate safe margins.
+- Clear visual hierarchy; the viewer should understand the message quickly.
+- Avoid overcrowding, unnecessary icons, decorative clutter, and excessive copy.
+
+Default composition for a square promotional creative:
+- Header / headline area: approximately 32%.
+- Main illustration area: approximately 50%.
+- Footer / supporting message or CTA: approximately 18%.
+These are starting proportions, not rigid constraints. Adapt them to the
+campaign and output aspect ratio.
+
+Illustration subject matter:
+- Local shopkeepers, customers, small-business owners, retail shelves,
+  products, checkout counters, phones, catalogues, offers, and local
+  community/business environments.
+- Use contextually appropriate people and objects.
+- Smartphone props may communicate Meelte's digital capabilities when relevant.
+- Avoid stereotypes and avoid adding irrelevant objects merely to fill space.
+
+===============================================================================
+3. SUPPORTED OUTPUT FORMATS
+===============================================================================
+
+The system should support at least:
+- Instagram square post: 1:1.
+- Instagram portrait/feed creative: 4:5.
+- Landscape promotional banner: 16:9.
+- Other custom aspect ratios when requested.
+
+For every request, capture:
+- Intended platform and placement.
+- Aspect ratio and target pixel dimensions.
+- Main campaign objective.
+- Target audience.
+- Main headline and supporting copy.
+- CTA, if any.
+- Required logo/assets and their source.
+- Must-include and must-avoid elements.
+- Whether text should be rendered in-image or added after generation.
+
+Do not force a 1:1 layout onto every request. Adapt composition, text scale,
+safe areas, and focal-point placement to the requested dimensions.
+
+===============================================================================
+4. MULTI-AGENT ARCHITECTURE
+===============================================================================
+
+Implement one Orchestrator Agent and the following specialist agents. Agents
+may be implemented using the project's existing framework or as modular
+services/functions, but their responsibilities and handoff contracts must
+remain separate.
+
+A. ORCHESTRATOR / CREATIVE PRODUCER
+Responsibilities:
+- Receive the user's request and manage the complete workflow.
+- Detect missing information and ask only essential clarification questions.
+- Decide which specialist agents are needed and in what order.
+- Maintain the canonical campaign brief and brand constraints.
+- Pass structured outputs between agents.
+- Resolve conflicting recommendations using the brand guide and user brief.
+- Track workflow status, revisions, errors, and final deliverables.
+- Never invent campaign facts, product capabilities, offers, prices, or claims.
+
+B. BRAND GUARDIAN AGENT
+Responsibilities:
+- Apply Meelte's brand identity and visual rules.
+- Validate palette, typography direction, illustration style, tone, and logo use.
+- Detect style drift from the approved visual system.
+- Produce a concise brand-compliance checklist for each campaign.
+- Flag requests that conflict with brand rules and explain the conflict.
+Output:
+- Brand constraints.
+- Allowed and disallowed visual treatments.
+- Brand-compliance checklist.
+
+C. CAMPAIGN STRATEGIST AGENT
+Responsibilities:
+- Understand the business objective and intended audience.
+- Translate the request into one clear marketing message.
+- Prioritize the audience benefit over technical feature descriptions.
+- Recommend a headline, supporting line, and CTA when copy is needed.
+- Keep copy concise and avoid unsupported claims.
+Output:
+- Campaign objective.
+- Audience and key insight.
+- Message hierarchy.
+- Approved copy options and CTA.
+
+D. ART DIRECTOR / COMPOSITION AGENT
+Responsibilities:
+- Convert the brief and copy into a visual concept.
+- Select the main subject, setting, props, layout, focal point, and visual flow.
+- Define the composition for the requested aspect ratio.
+- Specify text-safe zones, logo placement, spacing, and color distribution.
+- Avoid visual clutter and competing focal points.
+Output:
+- Visual concept.
+- Composition map.
+- Subject and environment description.
+- Layout and safe-area instructions.
+
+E. ILLUSTRATION / PROMPT ENGINEER AGENT
+Responsibilities:
+- Convert the approved art direction into a detailed image-generation prompt.
+- Specify the flat-vector illustration treatment, character design, shapes,
+  lighting, gradients, shadows, palette, and background.
+- Include explicit negative constraints to prevent photorealism, 3D rendering,
+  clutter, inconsistent styles, and unwanted text.
+- Adapt prompt structure to the selected image model without changing the
+  intended creative direction.
+Output:
+- Final generation prompt.
+- Negative prompt or avoidance instructions, if supported.
+- Model-specific settings recommendations, if supported.
+- Asset/reference requirements.
+
+F. IMAGE GENERATION AGENT
+Responsibilities:
+- Call the configured image-generation provider through a provider abstraction.
+- Use approved reference assets and the final prompt.
+- Generate the requested aspect ratio and image dimensions where supported.
+- Return the image, provider/model metadata, generation parameters, and errors.
+- Support retries and controlled variations.
+- Never claim generation succeeded if the provider call failed.
+Output:
+- Generated image or image reference.
+- Generation metadata.
+- Error details, if any.
+
+G. VISUAL QA / ART CRITIC AGENT
+Responsibilities:
+- Inspect the generated image against the original brief and brand checklist.
+- Evaluate composition, hierarchy, palette, illustration consistency,
+  readability, subject relevance, and visual polish.
+- Detect malformed text, misspelled brand names, distorted objects,
+  inconsistent character anatomy, clutter, poor contrast, and cropped content.
+- Separate critical failures from optional refinements.
+- Recommend a targeted revision prompt instead of rewriting everything.
+Output:
+- Pass/fail status.
+- Scored or clearly categorized QA checklist.
+- Issues with severity.
+- Targeted revision instructions.
+
+H. FINALIZER / DELIVERY AGENT
+Responsibilities:
+- Prepare the approved output in the requested format.
+- Apply deterministic text/logo overlays or layout finishing where the project
+  supports it.
+- Check dimensions, file type, safe margins, and output naming.
+- Preserve the original generated image and revision history.
+- Return the final asset and a short summary of what was delivered.
+Output:
+- Final image asset.
+- Dimensions and format.
+- Campaign/variation metadata.
+- Any known limitations.
+
+===============================================================================
+5. AGENT WORKFLOW AND HANDOFFS
+===============================================================================
+
+Default workflow:
+
+1. User submits an image request.
+2. Orchestrator creates a normalized campaign brief.
+3. Brand Guardian loads and applies Meelte's visual constraints.
+4. Campaign Strategist defines the message and copy hierarchy.
+5. Art Director creates the visual concept and composition.
+6. Illustration / Prompt Engineer creates the final image prompt.
+7. Orchestrator checks that the brief, copy, and composition agree.
+8. Image Generation Agent generates the image.
+9. Visual QA Agent reviews the generated result.
+10. If QA passes, Finalizer prepares the deliverable.
+11. If QA fails, Orchestrator sends targeted feedback to the relevant agent
+    and requests a limited revision. Set a configurable maximum retry count.
+12. Return the final image and a concise explanation of any limitations.
+
+Workflow rules:
+- The Brand Guardian and campaign brief are the source of truth for brand
+  constraints and campaign facts.
+- Do not let agents independently invent or alter approved campaign copy.
+- Do not regenerate the image for a minor text-layout issue if a deterministic
+  text-overlay step can fix it.
+- Do not loop indefinitely. Use a configurable retry limit and surface
+  unresolved issues to the user.
+- Keep a record of the prompt and key decisions used for each revision.
+- Allow the user to approve, reject, or request changes at appropriate
+  checkpoints. The project may support automatic mode and approval mode.
+- For simple requests, the Orchestrator may combine lightweight steps, but
+  must preserve the same quality and brand checks.
+
+===============================================================================
+6. REUSABLE AGENT SKILLS
+===============================================================================
+
+Create reusable skill instructions/modules for the following capabilities.
+Use the project's existing skill convention if one exists; otherwise create
+a clearly documented, modular skills directory.
+
+Required skills:
+
+1. meel te-brand-system (use the exact folder/identifier spelling
+   "meelte-brand-system")
+   - Canonical palette and color usage.
+   - Typography direction.
+   - Brand personality and marketing tone.
+   - Logo handling and clear-space rules.
+   - Approved illustration direction.
+   - Brand do/don't examples.
+
+2. flat-vector-illustration
+   - 2D vector commercial illustration.
+   - Friendly character proportions and expressions.
+   - Simplified environments and props.
+   - Minimal outlines, soft gradients, and subtle shadows.
+   - Consistent illustration style across a campaign series.
+
+3. marketing-creative-strategy
+   - Audience-first messaging.
+   - Benefit-led headlines.
+   - Short supporting copy and clear CTAs.
+   - Campaign objective and message hierarchy.
+
+4. advertising-layout-composition
+   - 1:1, 4:5, and 16:9 composition.
+   - Visual hierarchy and focal-point control.
+   - Text-safe areas, logo placement, and margins.
+   - Responsive composition rules by aspect ratio.
+
+5. image-prompt-engineering
+   - Model-aware prompt construction.
+   - Positive and negative prompt strategies.
+   - Reference-image usage.
+   - Prompt versioning and controlled iteration.
+
+6. image-quality-review
+   - Brand consistency review.
+   - Composition and readability checks.
+   - Text accuracy and artifact detection.
+   - Severity-based feedback and revision instructions.
+
+7. image-asset-finishing
+   - Image sizing and export.
+   - Text and logo overlays where appropriate.
+   - File naming, formats, and metadata.
+   - Preservation of original and revised assets.
+
+8. campaign-series-consistency
+   - Reuse of approved visual motifs and character treatments.
+   - Consistent palette, typography, logo placement, and layout language.
+   - Controlled variation so a series feels related without every image
+     becoming identical.
+
+Each skill must include:
+- Purpose and when to use it.
+- Inputs required.
+- Step-by-step procedure.
+- Output contract.
+- Quality checklist.
+- Examples relevant to Meelte.
+- Explicit constraints and failure cases.
+
+Do not create empty skill folders or generic placeholder instructions. Each
+skill must contain actionable guidance that an agent can actually follow.
+
+===============================================================================
+7. SHARED DATA CONTRACTS
+===============================================================================
+
+Define shared, validated schemas for the following objects. Use the project's
+existing validation library if available.
+
+A. CampaignBrief
+- request_id
+- campaign_name (optional)
+- objective
+- target_audience
+- platform
+- aspect_ratio
+- output_dimensions (optional)
+- headline (optional)
+- supporting_copy (optional)
+- call_to_action (optional)
+- required_elements
+- prohibited_elements
+- reference_assets
+- logo_asset (optional)
+- text_rendering_mode
+- user_preferences
+- approval_mode
+
+B. CreativePlan
+- campaign_brief
+- brand_constraints
+- campaign_message
+- visual_concept
+- main_subject
+- setting_and_props
+- composition
+- palette
+- typography_direction
+- text_safe_areas
+- image_prompt
+- negative_prompt (optional)
+
+C. GenerationResult
+- request_id
+- provider
+- model
+- image_asset_reference
+- prompt_version
+- generation_parameters
+- created_at
+- status
+- error (optional)
+
+D. QualityReview
+- request_id
+- overall_status
+- brand_compliance
+- composition_quality
+- message_clarity
+- illustration_quality
+- text_accuracy
+- technical_quality
+- issues
+- revision_instructions
+
+E. FinalDeliverable
+- request_id
+- asset_reference
+- file_format
+- width
+- height
+- final_status
+- revision_number
+- known_limitations (optional)
+
+Keep schemas provider-independent. Do not couple the entire workflow to one
+image model's request/response format.
+
+===============================================================================
+8. USER EXPERIENCE REQUIREMENTS
+===============================================================================
+
+The user should be able to:
+- Submit a natural-language image request.
+- Choose or confirm platform and aspect ratio.
+- Supply headline, copy, CTA, logo, and reference images.
+- Ask the system to propose campaign copy if copy is not supplied.
+- Choose automatic generation or approval checkpoints, if supported.
+- Request targeted edits such as changing the headline, character, background,
+  color balance, or layout.
+- Generate controlled variations from the same approved concept.
+- Reuse a previous campaign's visual language for a new creative.
+- See whether the image is being planned, generated, reviewed, revised, or
+  finalized.
+- Receive the final asset and relevant metadata.
+
+Ask a clarification question only when a missing detail materially affects
+the result. Use sensible defaults for nonessential details and make those
+defaults visible in the campaign brief.
+
+===============================================================================
+9. REFERENCE ASSETS AND BRAND MEMORY
+===============================================================================
+
+Create a maintainable source of truth for:
+- Meelte logo and approved logo variants.
+- Brand palette.
+- Typography references.
+- Approved style-guide images.
+- Approved campaign examples.
+- Reusable character/illustration references, where available.
+- Layout templates and platform dimensions.
+
+Requirements:
+- Do not fabricate or redraw the official logo unless explicitly requested.
+- Use supplied reference images as style/composition guidance, not as content
+  to copy exactly.
+- Keep reference assets separate from generated outputs.
+- Allow approved campaign outputs to be marked as reusable references.
+- Store asset descriptions and usage notes.
+- Do not treat every generated image as an approved brand reference.
+- Provide a way to update the brand guide without editing every agent prompt.
+
+===============================================================================
+10. QUALITY AND ACCEPTANCE CRITERIA
+===============================================================================
+
+The implementation is acceptable when:
+
+- A user can submit a plain-language Meelte image request and receive a
+  structured campaign brief.
+- The orchestrator invokes the appropriate specialist steps in a traceable
+  sequence.
+- Every generated creative uses the Meelte palette and approved illustration
+  direction unless the user explicitly overrides them.
+- The system supports 1:1, 4:5, and 16:9 layouts.
+- The system can create a headline-led creative with a central illustration
+  and concise supporting message.
+- Brand names and supplied campaign copy are preserved accurately.
+- QA identifies meaningful brand, layout, text, and image-quality problems.
+- Failed QA can trigger a bounded, targeted revision.
+- The system records prompts, revisions, generation metadata, and final status.
+- Image-provider integration is replaceable without rewriting agent logic.
+- Skills and brand rules are documented and reusable.
+- Errors are surfaced clearly; failed generation is never presented as success.
+- Existing project functionality remains intact.
+
+Suggested QA checklist for every final image:
+[ ] Correct campaign objective and audience.
+[ ] Meelte brand personality is recognizable.
+[ ] Orange and purple remain the dominant brand colors.
+[ ] Lavender, charcoal, and white are used appropriately.
+[ ] Flat-vector illustration style is consistent.
+[ ] Main subject is immediately understandable.
+[ ] Headline is readable and accurate.
+[ ] Supporting copy is concise and accurate.
+[ ] CTA is present only when required.
+[ ] Logo is correct, legible, and not distorted.
+[ ] Composition fits the requested aspect ratio.
+[ ] No important element is clipped or too close to an edge.
+[ ] No unnecessary clutter or unrelated objects.
+[ ] Export dimensions and format are correct.
+
+===============================================================================
+11. ENGINEERING REQUIREMENTS
+===============================================================================
+
+Before implementation:
+- Inspect the complete relevant repository structure.
+- Identify language, framework, package manager, current agent setup, image
+  provider, storage, authentication, and deployment constraints.
+- Identify existing prompt/skill conventions and reuse them where sensible.
+- Report assumptions and unknowns instead of inventing project details.
+- Propose a phased implementation plan before making broad architectural
+  changes.
+
+During implementation:
+- Keep agents modular and independently testable.
+- Use typed inputs and outputs where the stack supports them.
+- Validate agent outputs before passing them to the next stage.
+- Add timeouts, bounded retries, and clear error handling.
+- Keep provider credentials in environment variables or the project's secure
+  secret-management mechanism. Never hardcode API keys.
+- Avoid logging secrets or sensitive user data.
+- Store generated assets using the project's existing storage conventions.
+- Keep provider-specific code behind an adapter/interface.
+- Add unit tests for schemas, prompt construction, routing, and QA decisions.
+- Add integration tests for the complete workflow using mocked image-provider
+  responses where possible.
+- Add a sample end-to-end Meelte campaign for verification.
+- Document setup, configuration, skills, agent responsibilities, and how to
+  add another image provider or skill.
+
+Do not:
+- Rewrite unrelated parts of the application.
+- Add multiple agent frameworks without a demonstrated need.
+- Create agents that merely repeat the same prompt.
+- Give every agent unrestricted authority to change the brief.
+- Hardcode a single campaign or a single image prompt as the whole system.
+- Store secrets in source control.
+- claim a generated image is brand-approved unless it has passed the defined
+  review process.
+
+===============================================================================
+12. EXPECTED DELIVERABLES
+===============================================================================
+
+The coding agent should deliver:
+
+1. A repository-specific implementation plan.
+2. Multi-agent orchestration implementation.
+3. Specialist agent modules with clear responsibilities.
+4. Reusable Meelte image-generation skills.
+5. Centralized brand/style configuration.
+6. Shared schemas and agent handoff contracts.
+7. Image-provider adapter/interface.
+8. Bounded QA and revision workflow.
+9. Asset/reference management approach.
+10. Tests covering critical workflow paths.
+11. Documentation and a sample campaign request.
+12. A summary of files changed, design decisions, setup steps, and limitations.
+
+Implement in phases. First deliver the repository audit and implementation
+plan. Do not begin destructive refactoring or modify unrelated functionality.
+If the user or project owner has requested implementation in the same task,
+continue after the plan; otherwise wait for approval before changing code.
+
+END OF REQUIREMENTS
