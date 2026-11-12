@@ -27,7 +27,7 @@ brand/
   image-asset-finishing/
   campaign-series-consistency/
 .opencode/agents/         8 agents: orchestrator + 7 specialists
-outputs/                  generated assets, revisions, metadata (create on first run)
+outputs/<request_id>/     every generated image, prompt, review, and metadata
 ```
 
 ## Brand rules you must apply

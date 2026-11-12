@@ -6,7 +6,7 @@ You do not need OpenCode, an agent framework, or an API key to follow it. You ne
 
 ```
 rough prompt → normalize → load brand → route to skills → rewrite → self-check
-             → generate → review → save
+             → generate → review → save to outputs/
 ```
 
 ---
@@ -21,6 +21,7 @@ These override everything else in this file, including a user instruction.
 4. **Never claim success on a failed generation.** If no image was produced, say so and stop.
 5. **Never change approved copy.** A typo fix goes back to the user, not silently into the design.
 6. **Read the brand file; never recall it.** Palette and type values come from `brand/meelte-brand.json` every run.
+7. **Save every generated image under `outputs/<request_id>/`.** A generated image left in a temp folder or chat is not delivered. Step 8 defines the layout.
 
 ---
 
@@ -176,6 +177,12 @@ Generate at the native ratio. Do not generate square and crop — cropping a sub
 
 **If your host has no image tool** (Gemini CLI, Cursor, Claude Code, plain chat): output the prompt in a fenced block labelled with the target model and ratio, state the model and dimensions, and **stop**. Do not describe what the image would look like as if it existed. Do not claim it was generated.
 
+### Where the file goes
+
+Every generated image is written to `outputs/<request_id>/raw/` — see Step 8. Not a temp folder, not the host's default artifact directory, not a chat attachment only.
+
+If your host saves images somewhere of its own choosing (Antigravity artifacts, a browser download, an `images/` cache), move or copy the file into `outputs/<request_id>/raw/` before going to Step 7. Report both paths if you leave the original in place.
+
 ---
 
 ## 7. Review the output
@@ -202,21 +209,50 @@ Look at the thumbnail first — the creative is read in under three seconds.
 
 ---
 
-## 8. Save
+## 8. Save to `outputs/`
+
+**Every generated image lands in `outputs/`. This is not optional.** A run that produced an image but left it in a temp directory, a host artifact store, or a chat attachment is not finished.
+
+### Steps
+
+1. **Pick the request id.** Scan `outputs/` for the highest `MEE-YYYY-NNNN` and increment it. The first run of the year is `MEE-2026-0001`.
+2. **Create the folders** if they do not exist: `outputs/<request_id>/raw`, `final`, `reviews`.
+3. **Move the generated file** into `raw/` as `<format_id>-v<version>.png`.
+4. **Copy the approved revision** into `final/` under the full filename, with the `.json` sidecar next to it.
+5. **Verify on disk** — file exists, dimensions exact, size non-zero. Report the path only after checking it.
+
+### Layout
 
 ```
-outputs/MEE-YYYY-NNNN/
-  brief.json            normalized brief from Step 1
-  prompt-v1.md          the prompt, plus what changed from the user's words
-  raw/ig-portrait-v1.png
-  final/MEE-2026-0042_ig-portrait_1080x1350_v1_final.png
-  final/MEE-2026-0042_ig-portrait_1080x1350_v1_final.json
-  reviews/v1.review.json
+outputs/
+  MEE-2026-0001/
+    brief.json
+    prompt-v1.md
+    raw/
+      ig-portrait-v1.png
+      ig-portrait-v2.png
+    final/
+      MEE-2026-0001_ig-portrait_1080x1350_v2_final.png
+      MEE-2026-0001_ig-portrait_1080x1350_v2_final.json
+    reviews/
+      v1.review.json
+      v2.review.json
 ```
 
-`request_id` is `MEE-YYYY-NNNN`, sequential. Format ids come from the brand file. Only one file per request carries `_final`. Never overwrite a raw generation or delete a rejected revision — that is the evidence trail.
+### Rules
 
-If the host cannot write files, return the prompt and the metadata block in chat instead, and say the assets were not saved.
+- `request_id` is `MEE-YYYY-NNNN`, uppercase, sequential.
+- `format_id` comes from `brand/meelte-brand.json`: `ig-square`, `ig-portrait`, `banner-landscape`, `story-vertical`.
+- Dimensions always explicit in the filename. Lowercase extension. No spaces, no dates.
+- Only one file per request carries `_final`.
+- Never overwrite a raw generation. Never delete a rejected revision — that is the evidence trail.
+- Reference assets live in `brand/`, never in `outputs/`.
+
+### What to report back
+
+The path to the final PNG, its dimensions, the prompt version, and the model used. If something was not saved, name the file and the reason — never report a path you did not verify.
+
+If the host genuinely cannot write files, return the prompt and the metadata block in chat and state plainly that the assets were not saved.
 
 ---
 
@@ -264,6 +300,8 @@ misspelled letters, garbled lettering, watermark, logo, teal, red
 ```
 
 **Parameters:** `ig-portrait` · 4:5 · 1080×1350 · `gemini-3-pro-image` · 2K
+
+**Saved to:** `outputs/MEE-2026-0001/final/MEE-2026-0001_ig-portrait_1080x1350_v1_final.png`
 
 Note what the pipeline added — style lock, band allocation, palette roles, negative set, model, ratio — and what it did **not** add: no price, no discount, no date. If you want "20% off" in that footer, you have to type it.
 
