@@ -1,0 +1,38 @@
+{
+  "request_id": "MEE-2026-0002",
+  "objective": "Create a modern 16:9 hero section illustration featuring a floating smartphone mockup displaying a local discovery app with offer cards and floating notification chips",
+  "audience": "Website visitors and local business owners exploring Meelte",
+  "platform": "Website Hero Section",
+  "format_id": "banner-landscape",
+  "aspect_ratio": "16:9",
+  "target_pixels": [1920, 1080],
+  "safe_margin_pct": 4,
+  "headline": null,
+  "supporting_copy": null,
+  "call_to_action": null,
+  "must_include": [
+    "modern smartphone mockup floating at a gentle angle",
+    "clean local discovery app screen showing nearby offer cards",
+    "two small floating notification badge cards with soft shadows",
+    "soft lavender background with subtle radial glow"
+  ],
+  "must_avoid": [
+    "visible text",
+    "distorted lettering",
+    "numbers",
+    "logos",
+    "watermarks",
+    "photorealism",
+    "3D render",
+    "realistic hands",
+    "clutter"
+  ],
+  "text_mode": "overlay_after_generation",
+  "reference_assets": [],
+  "logo_asset": null,
+  "logo_status": "pending",
+  "style_mode": "flat_vector_default",
+  "style_override": false,
+  "approval_mode": "automatic",
+  "conflict_resolution": "Normalized from user draft prompt. Converted non-standard 4:3 ratio to approved 16:9 banner-landscape (1920x1080). Injected required warm orange accent alongside deep purple to satisfy dominant pair brand requirement. Enforced overlay_after_generation with zero text to prevent AI lettering defects on UI screens."
+}

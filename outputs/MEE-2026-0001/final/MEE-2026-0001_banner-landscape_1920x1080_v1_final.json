@@ -1,0 +1,37 @@
+{
+  "final_deliverable": {
+    "request_id": "MEE-2026-0001",
+    "asset_reference": "outputs/MEE-2026-0001/final/MEE-2026-0001_banner-landscape_1920x1080_v1_final.png",
+    "file_format": "png",
+    "width": 1920,
+    "height": 1080,
+    "colour_profile": "sRGB",
+    "file_size_kb": 2201,
+    "sha256": "fab88d8dc3d46bf88e93ef3ae9c1b5ce81c3f0af2d1e4aff60c1974c773697c3",
+    "final_status": "delivered",
+    "revision_number": 1,
+    "campaign_name": "Indian neighbourhood courtyard community cover",
+    "platform": "web_cover_banner",
+    "format_id": "banner-landscape",
+    "aspect_ratio": "16:9",
+    "text_overlays": [],
+    "logo": {
+      "status": "pending",
+      "variant": null,
+      "note": "User requested no visible text or logos; no supplied logo asset in brand/assets/logo/."
+    },
+    "source_generation": "outputs/MEE-2026-0001/raw/banner-landscape-v1.png",
+    "host_artifact_source": "C:\\Users\\sufiy\\.gemini\\antigravity\\brain\\3336bba4-5276-46fd-aedf-674aaa683beb\\banner_landscape_v1_1794457057936.jpg",
+    "prompt_version": "v1",
+    "style_lock_id": "meelte-flat-vector-v1",
+    "provider": "antigravity-image-generator",
+    "native_generation_pixels": [1376, 768],
+    "known_limitations": [
+      "Native image-generator output was 1376x768 JPEG; exported losslessly to exact 1920x1080 PNG (1.395x HighQualityBicubic scale + 4px top/bottom background-matched pad).",
+      "Potted plant foliage uses olive green and furniture frames use warm tan wood as minor supporting tones; orange and purple remain dominant.",
+      "Right potted plant outer leaf tip sits ~2% from the right edge (vs 4% target safe margin), unclipped.",
+      "No Meelte logo composited (logo_status: pending; user requested no visible text or logos)."
+    ],
+    "delivered_at": "2026-11-12T04:19:30Z"
+  }
+}

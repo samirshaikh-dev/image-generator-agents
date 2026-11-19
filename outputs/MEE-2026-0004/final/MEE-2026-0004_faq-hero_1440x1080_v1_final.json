@@ -1,0 +1,16 @@
+﻿{
+    "asset_reference":  "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0004\\final\\MEE-2026-0004_faq-hero_1440x1080_v1_final.png",
+    "finished_at":  "2026-11-19T11:49:28.2528863Z",
+    "width":  1440,
+    "source":  "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0004\\raw\\faq-hero-4-3-v1.jpg",
+    "request_id":  "MEE-2026-0004",
+    "source_dimensions":  "1200x896",
+    "height":  1080,
+    "file_size_kb":  1275,
+    "revision_number":  1,
+    "file_format":  "png",
+    "padded":  false,
+    "pad_colour":  null,
+    "scale_factor":  1.2,
+    "sha256":  "C564F30A6D79115E00485E79790350893003561B71003CDD4CCC4AC68F65DD92"
+}

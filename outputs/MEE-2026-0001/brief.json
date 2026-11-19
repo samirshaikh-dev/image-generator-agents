@@ -1,0 +1,35 @@
+{
+  "request_id": "MEE-2026-0001",
+  "objective": "Create a 16:9 cover illustration of a small, welcoming community gathering in an Indian neighbourhood courtyard",
+  "audience": "Indian neighbourhood residents and local small-business owners",
+  "platform": "Web / cover banner",
+  "format_id": "banner-landscape",
+  "aspect_ratio": "16:9",
+  "target_pixels": [1920, 1080],
+  "safe_margin_pct": 4,
+  "headline": null,
+  "supporting_copy": null,
+  "call_to_action": null,
+  "must_include": [
+    "small community gathering in an Indian neighbourhood courtyard",
+    "neighbours chatting around a simple table",
+    "candid warm expressions and relaxed community atmosphere"
+  ],
+  "must_avoid": [
+    "visible text",
+    "logos",
+    "watermarks",
+    "photorealism",
+    "3D render",
+    "staged corporate meeting",
+    "clutter"
+  ],
+  "text_mode": "overlay_after_generation",
+  "reference_assets": [],
+  "logo_asset": null,
+  "logo_status": "pending",
+  "style_mode": "flat_vector_default",
+  "style_override": false,
+  "approval_mode": "automatic",
+  "conflict_resolution": "User prompt initially requested editorial lifestyle photography (photorealistic). Brand Guardian surfaced conflict against brand/meelte-brand.json illustration.banned_treatments ('photorealism'). User resolved to convert to Meelte 2D flat-vector illustration with orange/purple/lavender palette at 1920x1080 (16:9 banner-landscape)."
+}

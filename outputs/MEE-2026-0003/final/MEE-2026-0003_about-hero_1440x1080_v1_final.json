@@ -1,0 +1,16 @@
+﻿{
+    "request_id":  "MEE-2026-0003",
+    "asset_reference":  "S:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0003\\final\\MEE-2026-0003_about-hero_1440x1080_v1_final.png",
+    "file_format":  "png",
+    "width":  1440,
+    "height":  1080,
+    "file_size_kb":  2380,
+    "sha256":  "39EB8553673A2D758DAAE94397AC5315D93104E6981F832C03B7C4F15AA30114",
+    "revision_number":  1,
+    "source":  "S:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0003\\raw\\about-hero-4-3-v1.jpg",
+    "source_dimensions":  "1200x896",
+    "scale_factor":  1.2,
+    "padded":  false,
+    "pad_colour":  null,
+    "finished_at":  "2026-11-19T11:09:01.2716128Z"
+}

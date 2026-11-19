@@ -1,0 +1,31 @@
+{
+  "quality_review": {
+    "request_id": "MEE-2026-0002",
+    "reviewed_asset": "outputs/MEE-2026-0002/raw/banner-landscape-v1.png",
+    "prompt_version": "v1",
+    "overall_status": "pass",
+    "scores": {
+      "brand_compliance": 10,
+      "composition_quality": 10,
+      "message_clarity": 10,
+      "illustration_quality": 9,
+      "text_accuracy": 10,
+      "technical_quality": 9
+    },
+    "dimension_notes": {
+      "brand_compliance": "Deep purple and warm orange read as the dominant brand pair against a soft lavender (#F4EFFD) field. Commercial 2D flat-vector illustration holds cleanly with zero photorealism or 3D skeuomorphism.",
+      "composition_quality": "Native 16:9 landscape composition with the floating smartphone mockup centered at 50% width and 50% height. Floating notification cards are balanced. All elements remain comfortably within the 4% safe margins with ample negative space.",
+      "message_clarity": "Instantly communicates a local discovery / nearby offers app in under three seconds.",
+      "illustration_quality": "Clean geometric outlines, soft single-direction shadows, simplified card iconography, and friendly rounded UI corners.",
+      "text_accuracy": "Strict adherence to overlay_after_generation: completely clean screen surfaces without gibberish text, garbled numbers, or fabricated logos.",
+      "technical_quality": "Native generation at 1376x768 (ratio delta 0.78% from 16:9); finished cleanly at exact 1920x1080 PNG with 1.395x scaling and zero padding required."
+    },
+    "issues": [],
+    "revision_instructions": [],
+    "retry_recommendation": {
+      "retry": false,
+      "max_retries": 2,
+      "reason": "All brand and quality criteria passed with zero defects."
+    }
+  }
+}

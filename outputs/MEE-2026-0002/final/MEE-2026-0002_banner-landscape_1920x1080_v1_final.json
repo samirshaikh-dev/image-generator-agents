@@ -1,0 +1,16 @@
+﻿{
+    "request_id":  "MEE-2026-0002",
+    "asset_reference":  "S:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0002\\final\\MEE-2026-0002_banner-landscape_1920x1080_v1_final.png",
+    "file_format":  "png",
+    "width":  1920,
+    "height":  1080,
+    "file_size_kb":  2231,
+    "sha256":  "4A2853AD500E1DDB49A02440B07C608887BAED33A88B64BD8EDFEFA02016B660",
+    "revision_number":  1,
+    "source":  "S:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0002\\raw\\banner-landscape-v1.png",
+    "source_dimensions":  "1376x768",
+    "scale_factor":  1.3953,
+    "padded":  false,
+    "pad_colour":  null,
+    "finished_at":  "2026-11-19T10:56:35.8629911Z"
+}

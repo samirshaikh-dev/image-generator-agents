@@ -1,0 +1,50 @@
+{
+  "quality_review": {
+    "request_id": "MEE-2026-0001",
+    "reviewed_asset": "outputs/MEE-2026-0001/raw/banner-landscape-v1.png",
+    "prompt_version": "v1",
+    "overall_status": "pass_with_notes",
+    "scores": {
+      "brand_compliance": 9,
+      "composition_quality": 9,
+      "message_clarity": 10,
+      "illustration_quality": 9,
+      "text_accuracy": 10,
+      "technical_quality": 9
+    },
+    "dimension_notes": {
+      "brand_compliance": "Orange and purple read clearly as the dominant pair against soft lavender negative space; flat 2D commercial vector treatment holds with no photorealism or 3D. Potted plants use olive green and furniture uses warm tan wood as minor supporting tones.",
+      "composition_quality": "Native 16:9 landscape composition centred on the table gathering with generous soft lavender negative space at top and sides; nothing clipped. Right plant leaf sits slightly close (~2%) to the right edge.",
+      "message_clarity": "Welcoming Indian neighbourhood courtyard gathering is immediately recognizable in under three seconds.",
+      "illustration_quality": "Consistent clean outlines, rounded friendly proportions, expressive simplified faces, and clean hands across all three figures; zero extra fingers or uncanny anatomy.",
+      "text_accuracy": "No text, lettering, or fabricated logo present, matching user requirement.",
+      "technical_quality": "Clean edges and smooth flat fills. Native generation was 1376x768 (within 0.8% of 16:9); finished cleanly at exact 1920x1080 PNG (1.395x upscale, well under 2x)."
+    },
+    "issues": [
+      {
+        "id": "Q1",
+        "dimension": "brand_compliance",
+        "severity": "minor",
+        "description": "Potted plant leaves use olive green and chair/table trim uses warm tan wood outside the five core tokens, though orange and purple remain dominant.",
+        "location": "left and right potted plants, table and chair frames",
+        "fix_type": "accept",
+        "owner": null
+      },
+      {
+        "id": "Q2",
+        "dimension": "composition_quality",
+        "severity": "minor",
+        "description": "Right potted plant outer leaf tip approaches ~2% from the right margin (target safe margin is 4%), without clipping.",
+        "location": "far right margin",
+        "fix_type": "accept",
+        "owner": null
+      }
+    ],
+    "revision_instructions": [],
+    "retry_recommendation": {
+      "retry": false,
+      "max_retries": 2,
+      "reason": "Zero critical or major issues; approved with minor notes."
+    }
+  }
+}

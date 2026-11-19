@@ -1,0 +1,31 @@
+{
+  "quality_review": {
+    "request_id": "MEE-2026-0004",
+    "reviewed_asset": "outputs/MEE-2026-0004/raw/faq-hero-4-3-v1.jpg",
+    "prompt_version": "v1",
+    "overall_status": "pass",
+    "scores": {
+      "brand_compliance": 10,
+      "composition_quality": 10,
+      "message_clarity": 10,
+      "illustration_quality": 10,
+      "text_accuracy": 10,
+      "technical_quality": 10
+    },
+    "dimension_notes": {
+      "brand_compliance": "Deep purple (#743BAA) and warm orange (#FEA711) establish the required dominant brand pair against a soft lavender (#F4EFFD) background. Polish 2D flat-vector illustration adheres strictly to Meelte style guidelines with zero 3D skeuomorphism, photorealism, or banned hues.",
+      "composition_quality": "Centered floating cluster of three rounded chat bubbles in the midground plane with generous negative space and clear outer margins for seamless website hero integration.",
+      "message_clarity": "Instantly communicates 'help' and 'answers' through the bold question mark, verified checkmark, and glowing lightbulb, paired with Meelte's local discovery location pin.",
+      "illustration_quality": "Clean vector geometry, smooth curved edges, soft drop shadows, and subtle sparkle accents. Lighter and less dense than the About and How It Works scenes, matching the quick-lookup nature of an FAQ page.",
+      "text_accuracy": "Flawless overlay_after_generation compliance: features only clean, recognisable vector glyphs with zero distorted AI lettering, fake words, or rogue typography.",
+      "technical_quality": "Raw 1200x896 render at 1.339 aspect ratio (0.45% delta from 4:3 target 1.333), scales cleanly to 1440x1080."
+    },
+    "issues": [],
+    "revision_instructions": [],
+    "retry_recommendation": {
+      "retry": false,
+      "max_retries": 2,
+      "reason": "All brand and quality criteria passed with zero defects."
+    }
+  }
+}

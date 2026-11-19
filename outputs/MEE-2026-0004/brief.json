@@ -1,0 +1,38 @@
+{
+  "request_id": "MEE-2026-0004",
+  "objective": "Create a lightweight, clean 4:3 FAQ page hero illustration symbolizing 'help' and 'answers' with floating rounded chat bubbles (question mark, checkmark, location pin) and subtle warm orange accent highlights (lightbulb, sparkles) on a soft lavender background",
+  "audience": "Website visitors, app users, and local merchants seeking quick answers on the Meelte FAQ page",
+  "platform": "Website FAQ Page Hero Section (1.2fr text / 1fr image grid)",
+  "format_id": "faq-hero-4-3",
+  "aspect_ratio": "4:3",
+  "target_pixels": [1440, 1080],
+  "safe_margin_pct": 5,
+  "headline": null,
+  "supporting_copy": null,
+  "call_to_action": null,
+  "must_include": [
+    "three overlapping rounded chat speech bubbles",
+    "one deep purple bubble with a clean white question mark symbol",
+    "one lavender bubble with a crisp checkmark symbol",
+    "one bubble with a small local discovery location pin symbol",
+    "tiny warm orange floating lightbulb and sparkle accents",
+    "soft circular gradient glow behind the floating bubbles",
+    "seamless light lavender (#F4EFFD) background for effortless website hero blending"
+  ],
+  "must_avoid": [
+    "people, figures, or hands",
+    "readable text, garbled letters, fake words, typography",
+    "heavy clutter or dark backgrounds",
+    "photorealism",
+    "3D render or clay render",
+    "watermarks or logos"
+  ],
+  "text_mode": "overlay_after_generation",
+  "reference_assets": [],
+  "logo_asset": null,
+  "logo_status": "pending",
+  "style_mode": "flat_vector_default",
+  "style_override": false,
+  "approval_mode": "automatic",
+  "conflict_resolution": "Normalized from user draft prompt. Corrected purple token hex from off-brand #6f3fb5 to canonical Meelte purple #743BAA. Injected required primary accent warm orange (#FEA711) into lightbulb, pin accent, and sparkles to satisfy the dominant brand pair rule (orange + purple must dominate together). Preserved requested 4:3 aspect ratio (1440x1080 target). Enforced overlay_after_generation with zero text to prevent AI lettering defects."
+}

@@ -1,0 +1,38 @@
+{
+  "request_id": "MEE-2026-0003",
+  "objective": "Create a modern 4:3 About page hero illustration telling the 'why we built it' story through a friendly neighbourhood street with three local shopfronts and glowing discovery pins",
+  "audience": "Website visitors, community members, and local business owners exploring the Meelte About page",
+  "platform": "Website About Page Hero Section (1.2fr text / 1fr image grid)",
+  "format_id": "about-hero-4-3",
+  "aspect_ratio": "4:3",
+  "target_pixels": [1440, 1080],
+  "safe_margin_pct": 5,
+  "headline": null,
+  "supporting_copy": null,
+  "call_to_action": null,
+  "must_include": [
+    "three small shopfronts (a café, a bakery, and a flower shop)",
+    "striped awnings in warm orange and purple",
+    "glowing location pins floating above each shopfront",
+    "soft lavender background (#F4EFFD) with subtle circular glow behind the scene",
+    "plain light lavender background for easy blending"
+  ],
+  "must_avoid": [
+    "people or figures (per user brief)",
+    "visible text, letters, or words on shopfront signboards",
+    "numbers",
+    "logos",
+    "watermarks",
+    "photorealism",
+    "3D render",
+    "clutter"
+  ],
+  "text_mode": "overlay_after_generation",
+  "reference_assets": [],
+  "logo_asset": null,
+  "logo_status": "pending",
+  "style_mode": "flat_vector_default",
+  "style_override": false,
+  "approval_mode": "automatic",
+  "conflict_resolution": "Normalized from user draft prompt. Corrected purple token hex from off-brand #6f3fb5 to canonical #743BAA. Injected required primary accent warm orange (#FEA711) into awnings, window trims, and pin accents to satisfy Meelte dominant pair rule (orange + purple must dominate together). Preserved requested 4:3 aspect ratio (1440x1080 target). Enforced overlay_after_generation with zero text to prevent AI lettering defects on shop signs."
+}
