@@ -1,0 +1,16 @@
+{
+    "asset_reference": "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0007\\final\\MEE-2026-0007_blog-hero_1440x1080_v1_final.png",
+    "finished_at": "2026-11-20T10:25:00.0000000Z",
+    "width": 1440,
+    "source": "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0007\\raw\\blog-hero-4-3-v1.jpg",
+    "request_id": "MEE-2026-0007",
+    "source_dimensions": "1200x896",
+    "height": 1080,
+    "file_size_kb": 1856,
+    "revision_number": 1,
+    "file_format": "png",
+    "padded": false,
+    "pad_colour": null,
+    "scale_factor": 1.2,
+    "sha256": "DC2F6C57E0ABD379390F4F077AB13C6092E91E203AB7FE471F6BF7A6640A0FB0"
+}

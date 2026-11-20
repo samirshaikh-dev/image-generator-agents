@@ -1,0 +1,40 @@
+{
+  "request_id": "MEE-2026-0007",
+  "objective": "Create a cozy, modern 4:3 Blog listing page hero illustration depicting neighbourhood storytelling and local merchant discovery: an open magazine or blog page floating at a slight angle, with small shopfront icons (café, bakery, flower shop), a coffee cup, a speech bubble, and a deep purple location pin rising from the pages, accompanied by floating cards with a warm orange heart, star, and bookmark on a soft lavender background.",
+  "audience": "Community members, readers, local shoppers, and small business owners exploring neighbourhood stories and merchant spotlights on the Meelte Blog listing page",
+  "platform": "Website Blog Listing Page Hero Section (4:3 aspect ratio, 1440x1080 target)",
+  "format_id": "blog-hero-4-3",
+  "aspect_ratio": "4:3",
+  "target_pixels": [1440, 1080],
+  "safe_margin_pct": 5,
+  "headline": null,
+  "supporting_copy": null,
+  "call_to_action": null,
+  "must_include": [
+    "open magazine or blog publication floating at a gentle angle in the center",
+    "stylized miniature shopfront icons rising from the pages (café with awning, bakery, flower shop)",
+    "deep purple discovery location pin (#743BAA)",
+    "warm coffee cup with subtle aroma vapor line",
+    "friendly rounded speech bubble symbolizing storytelling",
+    "floating rounded cards featuring a heart, a star, and a bookmark",
+    "dominant brand pair: deep purple (#743BAA) and warm orange (#FEA711) highlights",
+    "soft circular ambient glow radiating behind the floating publication",
+    "seamless light lavender (#F4EFFD) background for clean website hero integration"
+  ],
+  "must_avoid": [
+    "people, human figures, hands, or faces",
+    "readable text, letters, fake words, typography, numbers",
+    "photorealism, realistic photograph, 3D render, glossy reflections, skeuomorphism",
+    "dark backgrounds, heavy clutter, blurry textures",
+    "watermarks, logos",
+    "banned hues: cyan, teal, red, neon colors"
+  ],
+  "text_mode": "overlay_after_generation",
+  "reference_assets": [],
+  "logo_asset": null,
+  "logo_status": "pending",
+  "style_mode": "flat_vector_default",
+  "style_override": false,
+  "approval_mode": "automatic",
+  "conflict_resolution": "Normalized from user draft prompt. Corrected purple token hex from off-brand #6f3fb5 to canonical Meelte purple #743BAA. Injected required primary accent warm orange (#FEA711) into floating reaction cards (heart, star), coffee cup accent, and shop awnings to satisfy the dominant brand pair rule (orange + purple must dominate together). Preserved requested 4:3 aspect ratio (1440x1080 target). Enforced overlay_after_generation with zero readable text to eliminate AI lettering defects."
+}

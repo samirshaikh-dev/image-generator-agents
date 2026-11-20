@@ -1,0 +1,31 @@
+{
+  "quality_review": {
+    "request_id": "MEE-2026-0007",
+    "reviewed_asset": "outputs/MEE-2026-0007/raw/blog-hero-4-3-v1.jpg",
+    "prompt_version": "v1",
+    "overall_status": "pass",
+    "scores": {
+      "brand_compliance": 10,
+      "composition_quality": 10,
+      "message_clarity": 10,
+      "illustration_quality": 10,
+      "text_accuracy": 10,
+      "technical_quality": 10
+    },
+    "dimension_notes": {
+      "brand_compliance": "Deep purple (#743BAA) and warm orange (#FEA711) establish the canonical dominant brand pair against a soft lavender (#F4EFFD) background. Polished 2D flat-vector illustration adheres strictly to Meelte brand rules with zero 3D skeuomorphism, photorealism, or banned hues.",
+      "composition_quality": "Dynamic 15-degree angled open publication floating centrally in the midground plane with small shopfronts, location pin, and coffee cup rising cleanly. Floating reaction cards frame the upper perimeter with ample breathing room and clean outer margins for seamless website hero integration.",
+      "message_clarity": "Instantly communicates neighbourhood storytelling and merchant discovery through the open magazine format, café awning, bakery/flower shop icons, speech bubble, and Meelte discovery pin.",
+      "illustration_quality": "Clean geometric vector shapes, smooth edges, minimal outlines, and soft drop shadows. Engaging, playful, and approachable commercial aesthetic.",
+      "text_accuracy": "Flawless overlay_after_generation compliance: zero distorted AI lettering, fake words, or rogue typography. Clean abstract graphic icons only.",
+      "technical_quality": "Raw 1200x896 render (1.339 aspect ratio) scaled cleanly with high-quality bicubic resampling to target 1440x1080 (4:3) with zero artifacting."
+    },
+    "issues": [],
+    "revision_instructions": [],
+    "retry_recommendation": {
+      "retry": false,
+      "max_retries": 2,
+      "reason": "All brand, layout, and quality criteria passed with zero defects."
+    }
+  }
+}
