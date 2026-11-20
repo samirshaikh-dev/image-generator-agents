@@ -1,0 +1,18 @@
+{
+  "asset_reference": "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0006\\final\\careers-hero.svg",
+  "finished_at": "2026-11-19T12:44:00.0000000Z",
+  "width": 1440,
+  "height": 1080,
+  "format_id": "careers-hero-4-3",
+  "aspect_ratio": "4:3",
+  "file_size_kb": 16.5,
+  "file_format": "svg",
+  "request_id": "MEE-2026-0006",
+  "revision_number": 1,
+  "style_lock_id": "meelte-flat-vector-v1",
+  "source": "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0006\\final\\careers-hero.svg",
+  "scale_factor": 1.0,
+  "padded": false,
+  "pad_colour": null,
+  "sha256": "882E7665077C4009973F3F638D24F11F13242A79DB83367D23E17F5F468E00F6"
+}

@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1080" width="1440" height="1080" fill="none">
+  <defs>
+    <!-- Background & Ambient Glow Gradients -->
+    <radialGradient id="ambientGlow" cx="50%" cy="48%" r="42%" fx="50%" fy="48%">
+      <stop offset="0%" stop-color="#743BAA" stop-opacity="0.14" />
+      <stop offset="60%" stop-color="#FEA711" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#F4EFFD" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Phone Gradients -->
+    <linearGradient id="phoneBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#743BAA" />
+      <stop offset="100%" stop-color="#552483" />
+    </linearGradient>
+
+    <linearGradient id="phoneScreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FAF7FD" />
+    </linearGradient>
+
+    <!-- Orange Accent Gradient -->
+    <linearGradient id="orangeAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB534" />
+      <stop offset="100%" stop-color="#FEA711" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadows -->
+    <filter id="shadowLarge" x="-15%" y="-15%" width="130%" height="135%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#743BAA" flood-opacity="0.16" />
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#171923" flood-opacity="0.06" />
+    </filter>
+
+    <filter id="shadowMedium" x="-20%" y="-20%" width="140%" height="145%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#743BAA" flood-opacity="0.14" />
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#171923" flood-opacity="0.05" />
+    </filter>
+
+    <filter id="shadowOrange" x="-20%" y="-20%" width="140%" height="145%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#FEA711" flood-opacity="0.30" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background (Seamless Meelte Lavender) -->
+  <rect width="1440" height="1080" fill="#F4EFFD" />
+
+  <!-- Ambient Radial Glow Behind Central Cluster -->
+  <circle cx="720" cy="510" r="460" fill="url(#ambientGlow)" />
+
+  <!-- Layer 1: Background Decorative Floating Sparkles & Soft Orbs -->
+  <g id="ambient-accents" opacity="0.85">
+    <!-- Star Sparkle 1 (Top Left) -->
+    <path d="M 430 260 Q 430 285 405 285 Q 430 285 430 310 Q 430 285 455 285 Q 430 285 430 260 Z" fill="#FEA711" />
+    <!-- Star Sparkle 2 (Top Right) -->
+    <path d="M 1030 290 Q 1030 310 1010 310 Q 1030 310 1030 330 Q 1030 310 1050 310 Q 1030 310 1030 290 Z" fill="#743BAA" opacity="0.6" />
+    <!-- Star Sparkle 3 (Bottom Left) -->
+    <path d="M 460 760 Q 460 778 442 778 Q 460 778 460 796 Q 460 778 478 778 Q 460 778 460 760 Z" fill="#FEA711" opacity="0.75" />
+    <!-- Star Sparkle 4 (Bottom Right) -->
+    <path d="M 990 730 Q 990 748 972 748 Q 990 748 990 766 Q 990 748 1008 748 Q 990 748 990 730 Z" fill="#FEA711" />
+    <!-- Soft Dots -->
+    <circle cx="490" cy="360" r="6" fill="#743BAA" opacity="0.25" />
+    <circle cx="950" cy="240" r="8" fill="#FEA711" opacity="0.4" />
+    <circle cx="1060" cy="620" r="6" fill="#743BAA" opacity="0.3" />
+    <circle cx="380" cy="640" r="7" fill="#FEA711" opacity="0.35" />
+  </g>
+
+  <!-- Layer 2: Connecting Delicate Dotted Lines -->
+  <g id="connecting-lines" stroke="#743BAA" stroke-width="2.5" stroke-dasharray="7 8" stroke-linecap="round" opacity="0.45" fill="none">
+    <!-- Path from Phone to Top-Left Chat Bubble -->
+    <path d="M 620 420 C 560 380, 520 370, 470 380" />
+    <!-- Path from Phone to Top-Right Headset -->
+    <path d="M 820 410 C 890 380, 930 380, 970 400" />
+    <!-- Path from Phone to Bottom-Left Envelope -->
+    <path d="M 610 630 C 540 660, 500 680, 450 670" />
+    <!-- Path from Phone to Bottom-Right Location Pin -->
+    <path d="M 830 620 C 890 650, 940 660, 990 640" />
+  </g>
+
+  <!-- Layer 3: Central Anchor Smartphone (Midground) -->
+  <g id="central-smartphone" filter="url(#shadowLarge)">
+    <!-- Phone Outer Body -->
+    <rect x="585" y="270" width="270" height="520" rx="44" fill="url(#phoneBodyGrad)" stroke="#171923" stroke-width="4" stroke-opacity="0.12" />
+    
+    <!-- Phone Screen Surface -->
+    <rect x="602" y="288" width="236" height="484" rx="32" fill="url(#phoneScreenGrad)" />
+    
+    <!-- Top Speaker Ear-piece Notch -->
+    <rect x="685" y="304" width="70" height="7" rx="3.5" fill="#171923" opacity="0.18" />
+    <circle cx="770" cy="307.5" r="3.5" fill="#171923" opacity="0.18" />
+
+    <!-- Clean Abstract UI Wireframe Cards on Phone Screen -->
+    <!-- UI Header Bar -->
+    <rect x="626" y="336" width="96" height="12" rx="6" fill="#743BAA" opacity="0.22" />
+    <circle cx="810" cy="342" r="8" fill="#FEA711" opacity="0.9" />
+
+    <!-- UI Card 1 (Active Support Chat Card) -->
+    <g transform="translate(622, 372)">
+      <rect width="196" height="106" rx="18" fill="#F4EFFD" stroke="#743BAA" stroke-width="1.5" stroke-opacity="0.2" />
+      <!-- Mini avatar -->
+      <circle cx="28" cy="32" r="14" fill="#743BAA" />
+      <path d="M 28 27 A 5 5 0 0 1 28 37" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" />
+      <!-- Message line blocks -->
+      <rect x="52" y="22" width="96" height="9" rx="4.5" fill="#743BAA" opacity="0.8" />
+      <rect x="52" y="37" width="68" height="7" rx="3.5" fill="#171923" opacity="0.2" />
+      <!-- Inline mini bubble -->
+      <rect x="20" y="60" width="156" height="32" rx="12" fill="#FFFFFF" />
+      <circle cx="36" cy="76" r="4" fill="#FEA711" />
+      <rect x="48" y="72" width="76" height="8" rx="4" fill="#743BAA" opacity="0.25" />
+    </g>
+
+    <!-- UI Card 2 (Direct Help Route) -->
+    <g transform="translate(622, 494)">
+      <rect width="196" height="74" rx="18" fill="#FFFFFF" stroke="#171923" stroke-width="1.5" stroke-opacity="0.08" />
+      <circle cx="28" cy="37" r="14" fill="#FEA711" opacity="0.18" />
+      <path d="M 23 37 L 27 41 L 34 33" stroke="#FEA711" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="52" y="28" width="88" height="9" rx="4.5" fill="#171923" opacity="0.75" />
+      <rect x="52" y="43" width="112" height="7" rx="3.5" fill="#171923" opacity="0.25" />
+    </g>
+
+    <!-- UI Card 3 (Status Pill) -->
+    <g transform="translate(622, 584)">
+      <rect width="196" height="64" rx="18" fill="#FFFFFF" stroke="#171923" stroke-width="1.5" stroke-opacity="0.08" />
+      <circle cx="28" cy="32" r="14" fill="#743BAA" opacity="0.12" />
+      <circle cx="28" cy="32" r="5" fill="#743BAA" />
+      <rect x="52" y="24" width="76" height="8" rx="4" fill="#171923" opacity="0.7" />
+      <rect x="52" y="38" width="94" height="6" rx="3" fill="#171923" opacity="0.2" />
+    </g>
+
+    <!-- Home Indicator Bar -->
+    <rect x="680" y="754" width="80" height="5" rx="2.5" fill="#171923" opacity="0.25" />
+  </g>
+
+  <!-- Layer 4: Four Floating Feature Icons (Foreground) -->
+
+  <!-- Icon 1: Top-Left Vibrant Speech Chat Bubble -->
+  <g id="floating-chat-bubble" filter="url(#shadowOrange)" transform="translate(360, 310)">
+    <!-- Main Orange Bubble Body -->
+    <path d="M 30 0 L 150 0 C 166.5 0, 180 13.5, 180 30 L 180 84 C 180 100.5, 166.5 114, 150 114 L 62 114 L 32 144 L 32 114 L 30 114 C 13.5 114, 0 100.5, 0 84 L 0 30 C 0 13.5, 13.5 0, 30 0 Z" fill="url(#orangeAccentGrad)" />
+    <!-- White Chat Indicator Dots -->
+    <circle cx="56" cy="57" r="10" fill="#FFFFFF" />
+    <circle cx="90" cy="57" r="10" fill="#FFFFFF" />
+    <circle cx="124" cy="57" r="10" fill="#FFFFFF" />
+  </g>
+
+  <!-- Icon 2: Top-Right Customer Support Headset -->
+  <g id="floating-headset" filter="url(#shadowMedium)" transform="translate(940, 330)">
+    <!-- Base Circular Container Plate -->
+    <circle cx="85" cy="85" r="80" fill="#FFFFFF" stroke="#743BAA" stroke-width="2.5" stroke-opacity="0.15" />
+    <!-- Headset Band Curve -->
+    <path d="M 46 88 A 42 42 0 0 1 124 88" stroke="#743BAA" stroke-width="8" stroke-linecap="round" fill="none" />
+    <!-- Left Earcup -->
+    <rect x="36" y="80" width="16" height="28" rx="8" fill="#743BAA" />
+    <rect x="48" y="84" width="6" height="20" rx="3" fill="#FEA711" />
+    <!-- Right Earcup -->
+    <rect x="118" y="80" width="16" height="28" rx="8" fill="#743BAA" />
+    <rect x="116" y="84" width="6" height="20" rx="3" fill="#FEA711" />
+    <!-- Microphone Boom with Orange Tip -->
+    <path d="M 124 100 Q 124 122 100 126 L 86 126" stroke="#743BAA" stroke-width="5" stroke-linecap="round" fill="none" />
+    <circle cx="82" cy="126" r="6.5" fill="#FEA711" />
+  </g>
+
+  <!-- Icon 3: Bottom-Left Postal Envelope / Mail Support -->
+  <g id="floating-envelope" filter="url(#shadowMedium)" transform="translate(340, 580)">
+    <!-- Base Envelope White Body -->
+    <rect x="0" y="0" width="180" height="124" rx="20" fill="#FFFFFF" stroke="#743BAA" stroke-width="2.5" stroke-opacity="0.16" />
+    <!-- Envelope Bottom Fold Lines -->
+    <path d="M 6 118 L 74 66" stroke="#743BAA" stroke-width="2.5" stroke-opacity="0.22" stroke-linecap="round" />
+    <path d="M 174 118 L 106 66" stroke="#743BAA" stroke-width="2.5" stroke-opacity="0.22" stroke-linecap="round" />
+    <!-- Envelope Top Open Flap -->
+    <path d="M 8 10 L 90 74 L 172 10" stroke="#743BAA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35" />
+    <!-- Centered Brand Purple Wax Seal with Warm Orange Accent -->
+    <circle cx="90" cy="74" r="18" fill="#743BAA" />
+    <circle cx="90" cy="74" r="8" fill="#FEA711" />
+  </g>
+
+  <!-- Icon 4: Bottom-Right Local Discovery Location Pin -->
+  <g id="floating-location-pin" filter="url(#shadowMedium)" transform="translate(950, 580)">
+    <!-- Base Container Plate -->
+    <circle cx="80" cy="80" r="80" fill="#FFFFFF" stroke="#FEA711" stroke-width="2.5" stroke-opacity="0.25" />
+    <!-- Outer Soft Ground Shadow -->
+    <ellipse cx="80" cy="130" r="32" ry="8" fill="#743BAA" opacity="0.14" />
+    <!-- Location Pin Body (Meelte Deep Purple) -->
+    <path d="M 80 34 C 61.2 34 46 49.2 46 68 C 46 93.5 80 124 80 124 C 80 124 114 93.5 114 68 C 114 49.2 98.8 34 80 34 Z" fill="#743BAA" />
+    <!-- Inner Pin Core Dot (Vibrant Warm Orange) -->
+    <circle cx="80" cy="66" r="14" fill="#FEA711" />
+    <circle cx="80" cy="66" r="6" fill="#FFFFFF" />
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+{
+  "quality_review": {
+    "request_id": "MEE-2026-0005",
+    "reviewed_asset": "outputs/MEE-2026-0005/final/contact-hero.svg",
+    "prompt_version": "v1",
+    "overall_status": "pass",
+    "scores": {
+      "brand_compliance": 10,
+      "composition_quality": 10,
+      "message_clarity": 10,
+      "illustration_quality": 10,
+      "text_accuracy": 10,
+      "technical_quality": 10
+    },
+    "dimension_notes": {
+      "brand_compliance": "Deep purple (#743BAA) and warm orange (#FEA711) establish the required dominant brand pair against a soft lavender (#F4EFFD) background. Polished 2D flat-vector illustration adheres strictly to Meelte brand tokens and illustration guidelines with zero 3D skeuomorphism, photorealism, or banned hues.",
+      "composition_quality": "Centered upright smartphone midground anchor flanked symmetrically by four floating support iconography plates (speech bubble, envelope, headset, location pin) tied with delicate dotted paths. Generous negative space and 5% clear safe margins maintained throughout.",
+      "message_clarity": "Instantly communicates friendly multi-channel support (chat, email, phone assistance, local presence) without visual clutter.",
+      "illustration_quality": "Clean geometric vector shapes, smooth corner radii, soft drop shadows, and subtle warm sparkle accents matching the Meelte editorial flat-vector style.",
+      "text_accuracy": "Flawless overlay_after_generation compliance: features only clean, recognisable vector glyphs with zero distorted AI lettering, fake words, or rogue typography.",
+      "technical_quality": "Native scalable vector format at 1440x1080 (4:3 aspect ratio), razor sharp at any display resolution with zero compression artifacts."
+    },
+    "issues": [],
+    "revision_instructions": [],
+    "retry_recommendation": {
+      "retry": false,
+      "max_retries": 2,
+      "reason": "All brand and quality criteria passed with zero defects."
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "request_id": "MEE-2026-0006",
+  "objective": "Create an inspiring, welcoming 4:3 Careers hero illustration depicting a small diverse team collaborating around a laptop, backed by a stylized neighbourhood map with floating purple location pins, local shop/café icons, and floating milestone cards (checkmark, lightbulb, rocket) to represent community impact and mission-driven engineering.",
+  "audience": "Prospective team members, engineers, designers, community managers, and talent visiting the Meelte Careers page",
+  "platform": "Website Careers Page Hero Section (4:3 aspect ratio, adaptable for centered or two-column hero layout)",
+  "format_id": "careers-hero-4-3",
+  "aspect_ratio": "4:3",
+  "target_pixels": [1440, 1080],
+  "safe_margin_pct": 5,
+  "headline": null,
+  "supporting_copy": null,
+  "call_to_action": null,
+  "must_include": [
+    "diverse collaborative team in Meelte flat-vector style (rounded friendly characters, 1:5.5 proportions)",
+    "modern open laptop on desk as collaboration focal point",
+    "stylized neighbourhood street map backdrop with floating purple discovery pins",
+    "small shop and café silhouette icons representing local merchant partners",
+    "floating rounded milestone cards: checkmark (trust), lightbulb (ideas), and rocket (growth)",
+    "soft circular ambient glow radiating behind the central team cluster",
+    "dominant brand pair: deep purple (#743BAA) and warm orange (#FEA711) accents",
+    "soft lavender (#F4EFFD) background for seamless blending into the Careers hero section"
+  ],
+  "must_avoid": [
+    "photorealism, realistic photograph, 3D render, glossy reflections, skeuomorphism",
+    "readable text, letters, fake words, typography, numbers",
+    "distorted anatomy, deformed hands, extra fingers",
+    "dark backgrounds, heavy clutter, messy wires",
+    "watermarks, logos",
+    "banned hues: cyan, teal, red, neon colors"
+  ],
+  "text_mode": "overlay_after_generation",
+  "reference_assets": [],
+  "logo_asset": null,
+  "logo_status": "pending",
+  "style_mode": "flat_vector_default",
+  "style_override": false,
+  "approval_mode": "automatic",
+  "conflict_resolution": "Normalized from user draft prompts (accommodating both the primary team-collaboration concept and the safe AI-tool alternative). Corrected purple token hex from off-brand #6f3fb5 to canonical Meelte purple #743BAA. Injected required primary accent warm orange (#FEA711) into rocket, lightbulb, card highlights, and energy accents to satisfy the dominant brand pair rule (orange + purple must dominate together). Preserved requested 4:3 aspect ratio (1440x1080 target). Enforced overlay_after_generation with zero text to prevent AI lettering defects."
+}

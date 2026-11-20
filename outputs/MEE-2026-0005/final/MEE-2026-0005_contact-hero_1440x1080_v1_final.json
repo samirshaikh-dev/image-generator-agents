@@ -1,0 +1,18 @@
+{
+  "asset_reference": "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0005\\final\\contact-hero.svg",
+  "finished_at": "2026-11-19T12:31:00.0000000Z",
+  "width": 1440,
+  "height": 1080,
+  "format_id": "contact-hero-4-3",
+  "aspect_ratio": "4:3",
+  "file_size_kb": 10,
+  "file_format": "svg",
+  "request_id": "MEE-2026-0005",
+  "revision_number": 1,
+  "style_lock_id": "meelte-flat-vector-v1",
+  "source": "s:\\Office\\Meelte-Bengalore\\image-generator-agents\\outputs\\MEE-2026-0005\\final\\contact-hero.svg",
+  "scale_factor": 1.0,
+  "padded": false,
+  "pad_colour": null,
+  "sha256": "4E08B739B8808E586CA0FAAC884AE4597F876938DA74853F5718BA277CE1BA17"
+}
